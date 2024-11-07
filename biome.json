@@ -27,6 +27,25 @@
 			"suspicious": {
 				"all": true,
 				"noReactSpecificProps": "off"
+			},
+			"nursery": {
+				"all": true,
+				"useExplicitType": "off"
+			},
+			"a11y": {
+				"all": true
+			},
+			"complexity": {
+				"all": true
+			},
+			"correctness": {
+				"all": true
+			},
+			"performance": {
+				"all": true
+			},
+			"security": {
+				"all": true
 			}
 		}
 	},

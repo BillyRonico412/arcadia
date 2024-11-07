@@ -39,7 +39,7 @@ export const AnimalCard = (props: AnimalCardProps) => {
 				<CarouselContent>
 					{props.animal.images.map((image) => (
 						<CarouselItem key={image.url}>
-							<div className="w-full aspect-square relative">
+							<div className="relative aspect-square w-full">
 								<Image
 									src={image.url}
 									alt={props.animal.prenom}

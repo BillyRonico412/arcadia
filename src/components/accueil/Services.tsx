@@ -8,10 +8,10 @@ export const Services = async () => {
 		take: 3,
 	})
 	return (
-		<div className="py-8 bg-muted">
-			<div className="flex flex-col items-center gap-y-4 container mx-auto">
-				<p className="text-xl font-semibold">Services</p>
-				<div className="flex gap-x-4">
+		<div className="bg-muted py-8">
+			<div className="container mx-auto flex flex-col items-center gap-y-4">
+				<p className="font-semibold text-xl">Services</p>
+				<div className="flex flex-col gap-x-4 gap-y-4 lg:flex-row">
 					{services.map((service) => (
 						<ServiceCard key={service.id} service={service} />
 					))}

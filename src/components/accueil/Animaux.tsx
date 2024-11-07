@@ -9,10 +9,10 @@ export const Animaux = async () => {
 		},
 	})
 	return (
-		<div className="py-8 bg-muted">
-			<div className="flex flex-col items-center gap-y-4 container mx-auto">
-				<p className="text-xl font-semibold">Animaux</p>
-				<div className="w-full grid grid-cols-4 gap-x-8 gap-y-8">
+		<div className="bg-muted py-8">
+			<div className="container mx-auto flex flex-col items-center gap-y-4">
+				<p className="font-semibold text-xl">Animaux</p>
+				<div className="grid w-full grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
 					{animaux.map((animal) => (
 						<AnimalCard key={animal.id} animal={animal} />
 					))}

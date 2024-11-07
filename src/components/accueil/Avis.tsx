@@ -1,5 +1,7 @@
 import { AvisCard } from "@/components/common/AvisCard"
+import { Button } from "@/components/ui/button"
 import { prismaClient } from "@/utils"
+import Link from "next/link"
 
 export const Avis = async () => {
 	const aviss = await prismaClient.avis.findMany({
@@ -10,13 +12,16 @@ export const Avis = async () => {
 	})
 	return (
 		<div className="py-8">
-			<div className="flex flex-col items-center gap-y-4 container mx-auto">
-				<p className="text-xl font-semibold">Animaux</p>
-				<div className="w-full grid grid-cols-3 gap-x-8 gap-y-8">
+			<div className="container mx-auto flex flex-col items-center gap-y-4">
+				<p className="font-semibold text-xl">Animaux</p>
+				<div className="grid w-full grid-cols-1 gap-x-8 gap-y-8 lg:grid-cols-3">
 					{aviss.map((avis) => (
 						<AvisCard key={avis.id} avis={avis} />
 					))}
 				</div>
+				<Button variant="outline">
+					<Link href="/avis">Voir tous les avis</Link>
+				</Button>
 			</div>
 		</div>
 	)

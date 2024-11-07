@@ -12,9 +12,9 @@ export const Habitats = async () => {
 	})
 	return (
 		<div className="py-8">
-			<div className="flex flex-col items-center gap-y-4 container mx-auto">
-				<p className="text-xl font-semibold">Habitats</p>
-				<div className="w-full flex gap-x-4">
+			<div className="container mx-auto flex flex-col items-center gap-y-4">
+				<p className="font-semibold text-xl">Habitats</p>
+				<div className="flex w-full flex-col gap-x-4 gap-y-4 lg:flex-row">
 					{habitats.map((habitat) => (
 						<HabitatCard key={habitat.id} habitat={habitat} />
 					))}

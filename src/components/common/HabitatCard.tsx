@@ -34,12 +34,12 @@ interface HabitatCardProps {
 export const HabitatCard = (props: HabitatCardProps) => {
 	const [api, setApi] = useState<CarouselApi>()
 	return (
-		<Card className="w-full overflow-hidden relative">
+		<Card className="relative w-full overflow-hidden">
 			<Carousel setApi={setApi}>
 				<CarouselContent>
 					{props.habitat.images.map((image) => (
 						<CarouselItem key={image.url}>
-							<div className="relative w-full aspect-video">
+							<div className="relative aspect-video w-full">
 								<Image
 									src={image.url}
 									alt={props.habitat.nom}

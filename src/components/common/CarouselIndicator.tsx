@@ -1,6 +1,5 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
 import type { CarouselApi } from "@/components/ui/carousel"
 import { cn } from "@/lib/utils"
 import { useEffect, useState } from "react"
@@ -30,11 +29,11 @@ export const CarouselIndicator = (props: CarouselIndicatorProps) => {
 		return <></>
 	}
 	return (
-		<div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-x-1">
+		<div className="-translate-x-1/2 absolute bottom-2 left-1/2 flex transform gap-x-1">
 			{Array.from({ length: count }, (_, i) => i).map((i) => (
 				<div
 					key={i}
-					className={cn("w-2 aspect-square rounded-full bg-muted", {
+					className={cn("aspect-square w-2 rounded-full bg-muted", {
 						"bg-primary": i === current,
 					})}
 				/>
