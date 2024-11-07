@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button"
 import { prismaClient } from "@/utils"
 import Link from "next/link"
 
+export const dynamic = "force-dynamic"
+
 export const Habitats = async () => {
 	const habitats = await prismaClient.habitat.findMany({
 		take: 3,
