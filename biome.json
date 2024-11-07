@@ -30,7 +30,9 @@
 			},
 			"nursery": {
 				"all": true,
-				"useExplicitType": "off"
+				"useExplicitType": "off",
+				"noSecrets": "off",
+				"useComponentExportOnlyModules": "off"
 			},
 			"a11y": {
 				"all": true

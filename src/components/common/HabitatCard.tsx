@@ -43,7 +43,7 @@ export const HabitatCard = (props: HabitatCardProps) => {
 								<Image
 									src={image.url}
 									alt={props.habitat.nom}
-									objectFit="cover"
+									className="object-cover"
 									fill={true}
 								/>
 							</div>

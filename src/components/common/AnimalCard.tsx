@@ -43,7 +43,7 @@ export const AnimalCard = (props: AnimalCardProps) => {
 								<Image
 									src={image.url}
 									alt={props.animal.prenom}
-									objectFit="cover"
+									className="object-cover"
 									fill={true}
 								/>
 							</div>

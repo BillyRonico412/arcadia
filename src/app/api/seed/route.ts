@@ -1,6 +1,12 @@
 import { prismaClient } from "@/utils"
 
+let alreadySeeded = false
+
 export async function GET() {
+	if (alreadySeeded) {
+		return Response.json({ message: "Already seeded" })
+	}
+
 	const services = await prismaClient.service.createMany({
 		data: [
 			{
@@ -477,6 +483,8 @@ export async function GET() {
 			},
 		],
 	})
+
+	alreadySeeded = true
 
 	return Response.json({ message: "Seed succesfuly" })
 }
