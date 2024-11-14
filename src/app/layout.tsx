@@ -1,3 +1,6 @@
+import { Toaster } from "@/components/ui/sonner"
+import { ThemeProvider } from "@/components/ui/theme-provider"
+import { ClerkProvider } from "@clerk/nextjs"
 import type { Metadata } from "next"
 import { Cabin } from "next/font/google"
 import type { ReactNode } from "react"
@@ -12,14 +15,27 @@ const font = Cabin({
 	subsets: ["latin"],
 })
 
+export const dynamic = "force-dynamic"
+
 interface RootLayoutProps {
 	children: ReactNode
 }
 
 export default function RootLayout(props: RootLayoutProps) {
 	return (
-		<html lang="en">
-			<body className={`${font.className} antialiased`}>{props.children}</body>
-		</html>
+		<ClerkProvider>
+			<html lang="fr" suppressHydrationWarning={true}>
+				<body className={`${font.className} overflow-hidden antialiased`}>
+					<ThemeProvider
+						attribute="class"
+						defaultTheme="light"
+						disableTransitionOnChange={false}
+					>
+						{props.children}
+						<Toaster />
+					</ThemeProvider>
+				</body>
+			</html>
+		</ClerkProvider>
 	)
 }

@@ -7,6 +7,15 @@ const nextConfig: NextConfig = {
 				protocol: "https",
 				hostname: "img.freepik.com",
 			},
+			{
+				protocol: "https",
+				hostname: "placehold.co",
+			},
+			{
+				protocol: "https",
+				hostname: "zznowsmhh7nhkhuj.public.blob.vercel-storage.com",
+				port: "",
+			},
 		],
 	},
 }

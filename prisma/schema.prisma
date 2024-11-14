@@ -8,21 +8,28 @@ generator client {
   provider = "prisma-client-js"
 }
 
+generator zod {
+  provider = "zod-prisma-types"
+}
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-model Utilisateur {
-  id     Int    @id @default(autoincrement())
-  uid    String @unique
-  nom    String
-  prenom String
+enum RoleEnum {
+  Veterinaire
+  Employee
 }
 
-model Role {
-  id    Int    @id @default(autoincrement())
-  label String
+model Utilisateur {
+  id        Int          @id @default(autoincrement())
+  uid       String       @unique
+  nom       String
+  prenom    String
+  role      RoleEnum
+  Rapport   Rapport[]
+  Nouriture Nourriture[]
 }
 
 model Service {
@@ -31,11 +38,12 @@ model Service {
   description String
 }
 
-model Image {
-  id       Int       @id @default(autoincrement())
-  url      String
-  habitats Habitat[] @relation("HabitatImage")
-  animaux  Animal[]  @relation("AnimalImage")
+enum EtatAnimal {
+  BonneSante
+  SousObservation
+  EnSoins
+  EnQuarantaine
+  Repos
 }
 
 model Habitat {
@@ -43,28 +51,48 @@ model Habitat {
   nom         String
   description String
   animaux     Animal[] @relation("HabitatAnimal")
-  images      Image[]  @relation("HabitatImage")
+  images      String[]
+  avis        Avis[]   @relation("HabitatAvis")
+}
+
+model Race {
+  id     Int      @id @default(autoincrement())
+  label  String
+  Animal Animal[]
 }
 
 model Animal {
-  id        Int       @id @default(autoincrement())
-  prenom    String
-  race      String
-  images    Image[]   @relation("AnimalImage")
-  habitatId Int
-  habitat   Habitat   @relation("HabitatAnimal", fields: [habitatId], references: [id])
-  rapports  Rapport[] @relation("AnimalRapport")
+  id          Int          @id @default(autoincrement())
+  prenom      String
+  raceId      Int
+  race        Race         @relation(fields: [raceId], references: [id])
+  images      String[]
+  habitatId   Int
+  habitat     Habitat      @relation("HabitatAnimal", fields: [habitatId], references: [id])
+  rapports    Rapport[]    @relation("AnimalRapport")
+  nourritures Nourriture[] @relation("AnimalNourriture")
 }
 
 model Rapport {
-  id         Int      @id @default(autoincrement())
-  etat       String
-  nourriture String
-  grammage   Int
-  date       DateTime
-  detail     String?
-  animal     Animal   @relation("AnimalRapport", fields: [animalId], references: [id])
-  animalId   Int
+  id            Int         @id @default(autoincrement())
+  etat          EtatAnimal
+  date          DateTime
+  detail        String?
+  animal        Animal      @relation("AnimalRapport", fields: [animalId], references: [id])
+  animalId      Int
+  veterinaire   Utilisateur @relation(fields: [veterinaireId], references: [id])
+  veterinaireId Int
+}
+
+model Nourriture {
+  id        Int         @id @default(autoincrement())
+  label     String
+  grammage  Int
+  date      DateTime
+  employe   Utilisateur @relation(fields: [employeId], references: [id])
+  employeId Int
+  animal    Animal      @relation("AnimalNourriture", fields: [animalId], references: [id])
+  animalId  Int
 }
 
 model Avis {
@@ -72,4 +100,6 @@ model Avis {
   pseudo      String
   commentaire String
   isVisible   Boolean
+  habitat     Habitat @relation("HabitatAvis", fields: [habitatId], references: [id])
+  habitatId   Int
 }

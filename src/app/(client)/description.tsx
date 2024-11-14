@@ -1,4 +1,4 @@
-export const DescriptionAndPhotos = () => {
+export const Description = () => {
 	return (
 		<section className="container mx-auto max-w-screen-sm py-16">
 			<p className="flex-1 text-lg italic leading-8">

@@ -22,26 +22,33 @@
 			"all": true,
 			"style": {
 				"all": true,
-				"noDefaultExport": "off"
+				"noDefaultExport": "off",
+				"useNamingConvention": "off",
+				"noNegationElse": "off",
+				"useDefaultSwitchClause": "off"
 			},
 			"suspicious": {
 				"all": true,
-				"noReactSpecificProps": "off"
+				"noReactSpecificProps": "off",
+				"noArrayIndexKey": "off"
 			},
 			"nursery": {
 				"all": true,
 				"useExplicitType": "off",
 				"noSecrets": "off",
-				"useComponentExportOnlyModules": "off"
+				"useComponentExportOnlyModules": "off",
+				"noProcessEnv": "off"
 			},
 			"a11y": {
 				"all": true
 			},
 			"complexity": {
-				"all": true
+				"all": true,
+				"noExcessiveCognitiveComplexity": "off"
 			},
 			"correctness": {
-				"all": true
+				"all": true,
+				"noUndeclaredDependencies": "off"
 			},
 			"performance": {
 				"all": true

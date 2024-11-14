@@ -7,12 +7,7 @@ import {
 import type { Prisma } from "@prisma/client"
 
 interface ServiceCardProps {
-	service: Prisma.ServiceGetPayload<{
-		select: {
-			nom: true
-			description: true
-		}
-	}>
+	service: Prisma.ServiceGetPayload<Record<string, never>>
 }
 
 export const ServiceCard = (props: ServiceCardProps) => {
