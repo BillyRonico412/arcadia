@@ -2,8 +2,6 @@ import { AnimalCard } from "@/components/common/AnimalCard"
 import { prismaClient } from "@/utils"
 import Link from "next/link"
 
-export const dynamic = "force-dynamic"
-
 export const Animaux = async () => {
 	const animaux = await prismaClient.animal.findMany({
 		take: 8,

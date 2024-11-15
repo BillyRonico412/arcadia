@@ -1,8 +1,6 @@
 import { AdminVisiteAnimauxStats } from "@/app/admin/visites/stats"
 import { prismaClient } from "@/utils"
 
-export const dynamic = "force-dynamic"
-
 export default async function AdminVisitePage() {
 	const animaux = await prismaClient.animal.findMany()
 	return (

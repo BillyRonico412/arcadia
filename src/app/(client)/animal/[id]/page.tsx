@@ -10,8 +10,6 @@ interface AnimalPageProps {
 	params: Promise<{ id: string }>
 }
 
-export const dynamic = "force-dynamic"
-
 export default async function AnimalPage(props: AnimalPageProps) {
 	const id = Number((await props.params).id)
 

@@ -1,8 +1,6 @@
 import { NourritureAnimalCard } from "@/app/veterinaire/nourriture/nourriture-animal-card"
 import { prismaClient } from "@/utils"
 
-export const dynamic = "force-dynamic"
-
 export default async function VeterinaireNourriturePage() {
 	const animaux = await prismaClient.animal.findMany({
 		include: {

@@ -2,8 +2,6 @@ import { getRoleForCurrentUser, isAdmin } from "@/app/sign-in/actions"
 import { SignIn } from "@clerk/nextjs"
 import { redirect } from "next/navigation"
 
-export const dynamic = "force-dynamic"
-
 export default async function SignInPage() {
 	if (await isAdmin()) {
 		return redirect("/admin")

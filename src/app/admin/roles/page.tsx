@@ -3,8 +3,6 @@ import { utilisateurColumns } from "@/app/admin/roles/columns"
 import { DataTable } from "@/app/admin/roles/data-table"
 import { prismaClient } from "@/utils"
 
-export const dynamic = "force-dynamic"
-
 export default async function AdminRolePage() {
 	const utilisateurs = await prismaClient.utilisateur.findMany()
 	return (

@@ -9,8 +9,6 @@ interface AdminLayoutProps {
 	children: ReactNode
 }
 
-export const dynamic = "force-dynamic"
-
 export default async function AdminLayout(props: AdminLayoutProps) {
 	if (!(await isAdmin())) {
 		return redirect("/sign-in")

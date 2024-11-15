@@ -9,8 +9,6 @@ interface EmployeeLayoutProps {
 	children: ReactNode
 }
 
-export const dynamic = "force-dynamic"
-
 export default async function EmployeeLayout(props: EmployeeLayoutProps) {
 	const role = await getRoleForCurrentUser()
 	if (role !== "Employee") {

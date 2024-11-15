@@ -1,8 +1,6 @@
 import { ServiceCard } from "@/components/common/ServiceCard"
 import { prismaClient } from "@/utils"
 
-export const dynamic = "force-dynamic"
-
 export default async function ServicesPage() {
 	const services = await prismaClient.service.findMany()
 	return (

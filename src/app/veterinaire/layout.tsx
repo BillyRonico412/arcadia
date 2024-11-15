@@ -8,7 +8,6 @@ import type { ReactNode } from "react"
 interface VeterinaireLayoutProps {
 	children: ReactNode
 }
-export const dynamic = "force-dynamic"
 
 export default async function VeterinaireLayout(props: VeterinaireLayoutProps) {
 	const role = await getRoleForCurrentUser()
